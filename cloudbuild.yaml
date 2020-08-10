@@ -1,0 +1,29 @@
+substitutions:
+  _CONTAINER_GO_VERSION: "v1"
+  _CONTAINER_GO_NAME: "go-hpa"
+steps:
+  - id: "Gerando imagem docker"
+    name: "gcr.io/cloud-builders/docker"
+    args:
+      - "build"
+      - "-t"
+      - "gcr.io/$PROJECT_ID/${_CONTAINER_GO_NAME}:latest"
+      - "-t"
+      - "gcr.io/$PROJECT_ID/${_CONTAINER_GO_NAME}:${_CONTAINER_GO_VERSION}"
+      - "go/."
+  - id: "Executando teste"
+    name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "run",
+        "-t",
+        "--name",
+        "go_hpa",
+        "gcr.io/$PROJECT_ID/${_CONTAINER_GO_NAME}:latest",
+        "go",
+        "test",
+      ]
+
+images:
+  - "gcr.io/$PROJECT_ID/${_CONTAINER_GO_NAME}:latest"
+  - "gcr.io/$PROJECT_ID/${_CONTAINER_GO_NAME}:${_CONTAINER_GO_VERSION}"
