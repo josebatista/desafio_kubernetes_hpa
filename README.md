@@ -13,7 +13,7 @@ kubectl apply -f deployment.yaml
 ## Publicando service
 
 ```
-kubectl apply -f service.yaml
+kubectl apply -f services.yaml
 ```
 
 ## Publicando hpa
