@@ -10,7 +10,7 @@ steps:
       - "gcr.io/$PROJECT_ID/${_CONTAINER_GO_NAME}:latest"
       - "-t"
       - "gcr.io/$PROJECT_ID/${_CONTAINER_GO_NAME}:${_CONTAINER_GO_VERSION}"
-      - "go/."
+      - "."
   - id: "Executando teste"
     name: "gcr.io/cloud-builders/docker"
     args:
