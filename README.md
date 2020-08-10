@@ -1,12 +1,35 @@
 # Desafio Kubernetes + HPA
 
+O desafio consiste em criar uma aplicação em GoLang, para que essa possa "sobrecarregar" o processamento e fazer com o que seja realizado o auto escalonamento horizontal dos pods de acordo com o que foi configurado. E retornar como estava inicialmente quando o "stress" acabar.
+
 ## Repositório do container 'go_hpa' no [DockerHub](https://hub.docker.com/r/pereiraze/go_hpa).
 
-## O teste do Horizontal AutoScaler pode ser realizado conforme abaixo:
+## Publicando deployment
+
 ```
-*kubectl run -it loader --image=busybox /bin/sh*
+kubectl apply -f deployment.yaml
+```
+
+## Publicando service
+
+```
+kubectl apply -f service.yaml
+```
+
+## Publicando hpa
+
+```
+kubectl apply -f hpa.yaml
+```
+
+## O teste do HorizontalPodAutoScaler pode ser realizado conforme abaixo:
+
+```
+kubectl run -it loader --image=busybox /bin/sh
+```
 
 ### Dentro do executar o comando:
 
-*while true; do wget -q -O- http://go-hpa; done;*
+```
+while true; do wget -q -O - http://go-hpa.default.svc.cluster.local; done;
 ```
