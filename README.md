@@ -5,25 +5,31 @@ O desafio consiste em criar uma aplicação em GoLang, para que essa possa "sobr
 ## Repositório do container 'go_hpa' no [DockerHub](https://hub.docker.com/r/pereiraze/go_hpa).
 
 ## Publicando deployment
+
 ```
-**kubectl apply -f deployment.yaml**
+kubectl apply -f deployment.yaml
 ```
 
 ## Publicando service
+
 ```
-**kubectl apply -f service.yaml**
+kubectl apply -f service.yaml
 ```
 
 ## Publicando hpa
+
 ```
-**kubectl apply -f hpa.yaml**
+kubectl apply -f hpa.yaml
 ```
 
 ## O teste do HorizontalPodAutoScaler pode ser realizado conforme abaixo:
+
 ```
-**kubectl run -it loader --image=busybox /bin/sh**
+kubectl run -it loader --image=busybox /bin/sh
+```
 
 ### Dentro do executar o comando:
 
-**while true; do wget -q -O - http://go-hpa.default.svc.cluster.local; done;**
+```
+while true; do wget -q -O - http://go-hpa.default.svc.cluster.local; done;
 ```
