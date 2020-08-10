@@ -1,11 +1,16 @@
 FROM golang:1.14.6-alpine3.12 as builder
 
 WORKDIR /go/src/square
+
 COPY /src/main.go .
-RUN go build main.go
+
+ENV CGO_ENABLED 0
+RUN GOOS=linux go build main.go
 
 FROM scratch
 
 COPY --from=builder /go/src/square/main .
+
+EXPOSE 8080
 
 CMD [ "./main" ]
