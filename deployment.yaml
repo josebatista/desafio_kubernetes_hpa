@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: go-hpa
-          image: pereiraze/go_hpa
+          image: pereiraze/go-hpa
           ports:
             - containerPort: 80
           resources:

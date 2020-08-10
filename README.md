@@ -2,7 +2,7 @@
 
 O desafio consiste em criar uma aplicação em GoLang, para que essa possa "sobrecarregar" o processamento e fazer com o que seja realizado o auto escalonamento horizontal dos pods de acordo com o que foi configurado. E retornar como estava inicialmente quando o "stress" acabar.
 
-## Repositório do container 'go_hpa' no [DockerHub](https://hub.docker.com/r/pereiraze/go_hpa).
+## Repositório do container 'go-hpa' no [DockerHub](https://hub.docker.com/r/pereiraze/go-hpa).
 
 ## Publicando deployment
 
